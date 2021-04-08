@@ -15,6 +15,7 @@ public class MyFirstHttpServlet extends HttpServlet {
 
     private static final Logger logger = LoggerFactory.getLogger(MyFirstHttpServlet.class);
 
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().println("<h1>Привет от сервлета!!!</h1>");

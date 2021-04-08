@@ -58,7 +58,7 @@ public class UserServlet extends HttpServlet {
                 }
                 wr.println(String.format("<p><a href='../user'>Go Back</a></p>"));
             } else {
-                throw new Exception("Проверка как логируются исключения");
+                throw new UnsupportedOperationException("Проверка как логируются исключения");
             }
         } catch (Exception e) {
             logger.error("Error in UserServlet", e);
