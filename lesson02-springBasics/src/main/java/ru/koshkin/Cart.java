@@ -20,6 +20,13 @@ public class Cart implements Vault {
         }
     }
 
+    @PostConstruct
+    public void init() {
+        System.out.println("Введите номер продукта и нажмите Enter чтоб положить продукт в корзину" +
+                System.lineSeparator() + "Введите номер продукта со знаком \"-\" чтобы удалить его из корзины, если он там есть" +
+                System.lineSeparator() + "Введите 0 чтобы закончить");
+    }
+
     @Override
     public List<Storable> getAll() {
         return new ArrayList<>(products);
