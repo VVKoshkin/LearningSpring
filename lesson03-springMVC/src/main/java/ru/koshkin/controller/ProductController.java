@@ -24,10 +24,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public String productListMap(@RequestParam(name = "delete", required = false) Integer id, Model model) {
-        if (id != null) {
-            repo.delete(id);
-        }
+    public String productListMap(Model model) {
         model.addAttribute("prodList", repo.getAll());
         return ("product");
     }
@@ -49,5 +46,11 @@ public class ProductController {
         Storable product = new Product(null, null, null);
         model.addAttribute("product", product);
         return "product_form";
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteProductMap(@PathVariable("id") int id) {
+        repo.delete(id);
+        return "redirect:/product";
     }
 }

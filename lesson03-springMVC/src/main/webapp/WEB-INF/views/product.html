@@ -19,6 +19,7 @@
             font-family: 'Roboto', sans-serif;
         }
 
+
     </style>
 </head>
 
@@ -58,19 +59,22 @@
                 </tr>
                 </thead>
                 <tbody>
-<!--                <tr>-->
-<!--                    <td colspan="4"><h1>В разработке!</h1></td> &lt;!&ndash; заглушка, убрать потом! &ndash;&gt;-->
-<!--                </tr>-->
-                                <tr th:each="product : ${prodList}">
-                                    <th scope="row" th:text="${product.id}">1</th>
-<!--                                    <td th:text="${product.id}">1</td>-->
-                                    <td th:text="${product.name}">1</td>
-                                    <td th:text="${product.price}">Alex</td>
-                                    <td>
-                                        <a class="btn btn-success" th:href="@{/product/{id}(id = ${product.id})}"><i class="fas fa-edit"></i></a>
-                                        <a class="btn btn-danger" th:href="@{/product?delete={id}(id = ${product.id})}"><i class="far fa-trash-alt"></i></a>
-                                    </td>
-                                </tr>
+                <!--                <tr>-->
+                <!--                    <td colspan="4"><h1>В разработке!</h1></td> &lt;!&ndash; заглушка, убрать потом! &ndash;&gt;-->
+                <!--                </tr>-->
+                <tr th:each="product : ${prodList}">
+                    <th scope="row" th:text="${product.id}">1</th>
+                    <!--                                    <td th:text="${product.id}">1</td>-->
+                    <td th:text="${product.name}">1</td>
+                    <td th:text="${product.price}">Alex</td>
+                    <td>
+                        <a class="btn btn-success mr-3" th:href="@{/product/{id}(id = ${product.id})}"><i
+                                class="fas fa-edit"></i></a>
+                        <form style="display:inline;" th:action="@{/product/{id}(id = ${product.id})}" th:method="delete">
+                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                        </form>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
