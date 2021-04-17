@@ -19,6 +19,7 @@
     <modules>
         <module>lesson01-servletAPI</module>
         <module>lesson02-springBasics</module>
+        <module>lesson03-springMVC</module>
     </modules>
 
 </project>
