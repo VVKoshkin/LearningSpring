@@ -11,6 +11,7 @@ import ru.koshkin.Product;
 import ru.koshkin.ProductRepo;
 import ru.koshkin.Storable;
 
+import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 
 @Controller
@@ -22,12 +23,14 @@ public class ProductController {
     private final ProductRepo repo;
 
     @Autowired
-    public ProductController(ProductRepo repo) {
+    public ProductController(ProductRepo repo) throws ReflectiveOperationException {
         this.repo = repo;
+        logger.info(this.repo.getList());
     }
 
     @GetMapping
     public String productListMap(Model model) {
+        logger.info(repo.getList());
         model.addAttribute("prodList", repo.getAll());
         return ("product");
     }

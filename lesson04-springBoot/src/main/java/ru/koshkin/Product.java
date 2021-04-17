@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.annotation.PostConstruct;
 import javax.validation.constraints.*;
 
-//@Component("product")
 public class Product implements Storable {
     private Integer id;
     @Size(min = 3, message = "Имя продукта не менее 3 символов")
