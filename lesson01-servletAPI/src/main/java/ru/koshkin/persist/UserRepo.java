@@ -19,6 +19,7 @@ public class UserRepo {
         return userMap.get(id);
     }
 
+
     public void insert(User user) {
         long id = identity.incrementAndGet();
         user.setId(id);

@@ -38,6 +38,5 @@ public class MyFirstServlet implements Servlet {
 
     @Override
     public void destroy() {
-
     }
 }
