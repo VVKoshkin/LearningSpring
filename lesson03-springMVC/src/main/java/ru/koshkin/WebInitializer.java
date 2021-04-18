@@ -1,0 +1,43 @@
+package ru.koshkin;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
+
+public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+    private final static Logger logger = LoggerFactory.getLogger(WebInitializer.class);
+
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class[0];
+    }
+
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class[]{AppConfig.class};
+    }
+
+    @Override
+    protected String[] getServletMappings() {
+        return new String[]{"/"};
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        // Создание фильтра кодировки, который позволит работать с русскими
+        // символами
+        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding("UTF-8");
+        characterEncodingFilter.setForceEncoding(true);
+        // Создание фильтра, который добавляет поддержку HTTP-методов (например
+        // таких, как PUT), необходимых для REST API
+        HiddenHttpMethodFilter httpMethodFilter = new HiddenHttpMethodFilter();
+        return new Filter[]{characterEncodingFilter, httpMethodFilter};
+    }
+
+}

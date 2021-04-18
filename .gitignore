@@ -1,1 +1,9 @@
 /lesson01-servletAPI/target/
+/lesson02-servletAPI/target/
+/lesson03-springMVC/target/
+/lesson05-hibernate/target
+/lesson05-hibernate/lesson05-hibernate.iml
+.idea
+!.idea/runConfigurations
+*.iml
+*.class
