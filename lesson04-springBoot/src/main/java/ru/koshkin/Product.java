@@ -12,6 +12,7 @@ public class Product implements Storable {
     private String name;
     @PositiveOrZero(message = "Цена на продукт не может быть отрицательной")
 //    @Pattern(regexp = "\\d+(\\.\\d+)?", message = "Неверный формат цены")
+    @NotNull
     private Integer price;
     private static int autoIncrement = 1;
 

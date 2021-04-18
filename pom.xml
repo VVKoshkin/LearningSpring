@@ -21,6 +21,7 @@
         <module>lesson02-springBasics</module>
         <module>lesson03-springMVC</module>
         <module>lesson04-springBoot</module>
+        <module>lesson05-hibernate</module>
     </modules>
 
 </project>

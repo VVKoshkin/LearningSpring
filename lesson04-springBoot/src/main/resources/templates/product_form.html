@@ -20,7 +20,7 @@
                     <label>Информация о продукте</label>
                     <input type="text" class="form-control" th:field="*{name}" placeholder="Введите наименование">
                     <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
-                    <input type="text" class="form-control" th:field="*{price}" placeholder="Введите цену">
+                    <input type="number" class="form-control" th:field="*{price}" placeholder="Введите цену">
                     <p class="text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p>
                 </div>
 
