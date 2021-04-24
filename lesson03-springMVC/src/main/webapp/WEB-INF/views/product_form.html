@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head.html ::head ('Koshkin shop - Spring MVC Edition! - карточка продукта')">
+</head>
+
+<body>
+
+<nav th:replace="fragments/navbar.html :: navbar ('product')">
+</nav>
+
+<div class="container">
+    <div class="row py-2">
+        <div class="col-12">
+            <form th:action="@{/product}" th:method="post" th:object="${product}">
+
+                <input type="hidden" th:field="*{id}">
+
+                <div class="form-group">
+                    <label>Информация о продукте</label>
+                    <input type="text" class="form-control" th:field="*{name}" placeholder="Введите наименование">
+                    <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                    <input type="text" class="form-control" th:field="*{price}" placeholder="Введите цену">
+                    <p class="text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<th:block th:replace="fragments/scripts.html :: scripts">
+</th:block>
+
+</body>
+</html>
