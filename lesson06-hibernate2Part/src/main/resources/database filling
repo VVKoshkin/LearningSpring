@@ -1,0 +1,31 @@
+--DDL
+CREATE TABLE product (
+	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	"name" varchar NOT NULL,
+	price float4 NULL,
+	CONSTRAINT product_pk PRIMARY KEY (id)
+);
+
+CREATE TABLE Customer (
+	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	"name" varchar NOT NULL,
+	CONSTRAINT customer_pk PRIMARY KEY (id)
+);
+--DCL
+GRANT ALL ON TABLE public.customer TO "dbUser";
+GRANT ALL ON TABLE public.product TO "dbUser";
+--DML
+insert into product (name, price) values ('Мультиварка',45000);
+insert into product (name, price) values ('Пылесос', 7000);
+insert into product (name, price) values ('Холодильник',25000);
+insert into product (name, price) values ('Телевизор',13000);
+insert into product (name, price) values ('Стиральная машина',30000);
+insert into product (name, price) values ('Кофемашина',60000);
+insert into product (name, price) values ('Смартфон',30000);
+
+insert into Customer (name) values ('Инна');
+insert into Customer (name) values ('Василий');
+insert into Customer (name) values ('Алексей');
+insert into Customer (name) values ('Анна');
+insert into Customer (name) values ('Иван');
+insert into Customer (name) values ('Ксения');

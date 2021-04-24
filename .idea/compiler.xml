@@ -11,6 +11,7 @@
         <module name="lesson03-springMVC" />
         <module name="lesson01-servletAPI" />
         <module name="lesson05-hibernate" />
+        <module name="lesson06-hibernate2Part" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

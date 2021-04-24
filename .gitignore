@@ -3,6 +3,7 @@
 /lesson03-springMVC/target/
 /lesson05-hibernate/target
 /lesson05-hibernate/lesson05-hibernate.iml
+/lesson06-hibernate2Part/target
 .idea
 !.idea/runConfigurations
 *.iml
