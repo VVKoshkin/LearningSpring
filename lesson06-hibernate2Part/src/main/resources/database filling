@@ -1,19 +1,24 @@
 --DDL
-CREATE TABLE product (
+CREATE TABLE public.customer (
+	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	"name" varchar NOT NULL,
+	CONSTRAINT customer_pk PRIMARY KEY (id)
+);
+CREATE TABLE public.product (
 	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
 	"name" varchar NOT NULL,
 	price float4 NULL,
 	CONSTRAINT product_pk PRIMARY KEY (id)
 );
-
-CREATE TABLE Customer (
-	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
-	"name" varchar NOT NULL,
-	CONSTRAINT customer_pk PRIMARY KEY (id)
+CREATE TABLE public.line_item (
+	id bigserial NOT NULL,
+	product_price numeric(19,2) NULL,
+	customer_id int8 NULL,
+	product_id int8 NULL,
+	CONSTRAINT line_item_pkey PRIMARY KEY (id),
+	CONSTRAINT fk2nbceo5d0r9hfvya0bx0p8dbj FOREIGN KEY (customer_id) REFERENCES customer(id),
+	CONSTRAINT fk9ynod4o8x84q3i5whk3sxnkea FOREIGN KEY (product_id) REFERENCES product(id)
 );
---DCL
-GRANT ALL ON TABLE public.customer TO "dbUser";
-GRANT ALL ON TABLE public.product TO "dbUser";
 --DML
 insert into product (name, price) values ('Мультиварка',45000);
 insert into product (name, price) values ('Пылесос', 7000);
