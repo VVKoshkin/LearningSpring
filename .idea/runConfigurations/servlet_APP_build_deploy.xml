@@ -20,7 +20,7 @@
             <map />
           </option>
           <option name="resolveToWorkspace" value="false" />
-          <option name="workingDirPath" value="$PROJECT_DIR$/lesson01-servletAPI" />
+          <option name="workingDirPath" value="$PROJECT_DIR$/lesson03-springMVC" />
         </MavenRunnerParameters>
       </option>
     </MavenSettings>
