@@ -3,17 +3,15 @@ package ru.koshkin.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.koshkin.persist.Entities.ProductEntity;
+import ru.koshkin.pageFilters.ProductPF;
 import ru.koshkin.service.ProductService;
 
 import javax.validation.Valid;
-import java.math.BigDecimal;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/product")
@@ -24,16 +22,14 @@ public class ProductController {
     private final ProductService productService;
 
     @Autowired
-    public ProductController(ProductService productService) throws ReflectiveOperationException {
+    public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
     @GetMapping
-    public String productListMap(@RequestParam(name = "minPrice") @Nullable BigDecimal minPrice, @RequestParam(name = "maxPrice") @Nullable BigDecimal maxPrice, Model model) {
-//        model.addAttribute("prodList", productService.getAll());
-        model.addAttribute("prodList", productService.findBetweenPrices(minPrice, maxPrice));
-        model.addAttribute("minPrice");
-        model.addAttribute("maxPrice");
+    public String productListMap(ProductPF productPF, Model model) {
+        model.addAttribute("prodList", productService.findWithFilter(productPF));
+        model.addAttribute("productPF", productPF);
         return ("product");
     }
 

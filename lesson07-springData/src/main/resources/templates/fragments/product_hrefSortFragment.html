@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<a th:fragment="ref (text, sortCol)" class="page-link"
+   th:href="@{/product(
+                       page=${productPF.getPage()},
+                       size=${productPF.getSize()},
+                       productName=${productPF.getProductName()},
+                       minPrice=${productPF.getMinPrice()},
+                       maxPrice=${productPF.getMaxPrice()},
+                       sortBy=${sortCol},
+                       sortDirection=${productPF.getSortDirection()}
+                       )}" ,
+   th:text="${text}">ТЫК</a>
+</html>
