@@ -13,10 +13,17 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <spring.version>5.3.3</spring.version>
     </properties>
 
     <modules>
         <module>lesson01-servletAPI</module>
+        <module>lesson02-springBasics</module>
+        <module>lesson03-springMVC</module>
+<!--        <module>lesson04-springBoot</module>-->
+        <module>lesson05-hibernate</module>
+        <module>lesson06-hibernate2Part</module>
+        <module>lesson07-springData</module>
     </modules>
 
 </project>

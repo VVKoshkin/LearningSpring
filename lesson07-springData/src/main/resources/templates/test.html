@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестовая страничка спринг!</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<h3>Hello from Spring MVC!!!</h3>
+<p>Just testing our possibilities ^_^</p>
+
+<p th:each="val : ${arr}" scope="row" th:text="${val}">AAAA</p>
+</body>
+</html>
