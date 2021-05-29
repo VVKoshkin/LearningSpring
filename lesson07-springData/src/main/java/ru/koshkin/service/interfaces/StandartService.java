@@ -3,9 +3,10 @@ package ru.koshkin.service.interfaces;
 import ru.koshkin.persist.Entities.Persistable;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface StandartService<T extends Persistable> {
-    T getById(Long id);
+    Optional<T> getById(Long id);
 
     List<T> getAll();
 

@@ -17,6 +17,7 @@ import ru.koshkin.service.interfaces.StandartService;
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService implements StandartService<ProductEntity> {
@@ -27,8 +28,8 @@ public class ProductService implements StandartService<ProductEntity> {
     private ProductRepository productRepository;
 
     @Override
-    public ProductEntity getById(Long id) {
-        return productRepository.getOne(id);
+    public Optional<ProductEntity> getById(Long id) {
+        return productRepository.findById(id);
     }
 
     @Override

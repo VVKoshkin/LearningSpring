@@ -1,6 +1,10 @@
 package ru.koshkin.persist.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -14,7 +18,8 @@ public class CustomerEntity implements Persistable {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "customerEntity")
+    @OneToMany(mappedBy = "customerEntity", fetch = FetchType.LAZY)
+    @JsonBackReference
     private List<LineItemEntity> lineItems;
 
     @Override

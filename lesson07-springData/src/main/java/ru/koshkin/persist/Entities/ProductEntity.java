@@ -1,6 +1,11 @@
 package ru.koshkin.persist.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -26,7 +31,8 @@ public class ProductEntity implements Persistable {
     @Column(name = "price")
     private BigDecimal price;
 
-    @OneToMany(mappedBy = "productEntity")
+    @OneToMany(mappedBy = "productEntity", fetch = FetchType.LAZY)
+    @JsonBackReference
     private List<LineItemEntity> lineItems;
 
     @Override
